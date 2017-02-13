@@ -1,0 +1,28 @@
+{
+  "name": "domain-verifier",
+  "version": "0.1.0",
+  "description": "Verify domain ownership",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:coen-hyde/domain-verifier.git"
+  },
+  "keywords": [
+    "domain",
+    "verification"
+  ],
+  "author": "Coen Hyde",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "requirize": "^0.1.2"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7"
+  }
+}
