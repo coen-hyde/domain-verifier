@@ -4,7 +4,7 @@ var sinon = require('sinon');
 var expect = require('expect.js');
 
 var dns = require('dns');
-var dnstxt = require('../../lib/strategies/dnstxt');
+var verifier = require('../../');
 
 describe('Strategies:DNSTXT', function() {
   var token='wef0vihqw3rpoaxufg';
@@ -21,7 +21,7 @@ describe('Strategies:DNSTXT', function() {
     })
 
     it('should not return verified', function(done) {
-      dnstxt('example.com', "bla", function(err, verified) {
+      verifier.dnstxt('example.com', "bla", function(err, verified) {
         expect(err).to.equal(null);
         expect(verified).to.equal(false);
         done();
@@ -47,7 +47,7 @@ describe('Strategies:DNSTXT', function() {
     })
 
     it('should return not verified for search of TXT DNS records with bad token', function(done) {
-      dnstxt('example.com', "bla", function(err, verified) {
+      verifier.dnstxt('example.com', "bla", function(err, verified) {
         expect(err).to.equal(null);
         expect(verified).to.equal(false);
         done();
@@ -55,7 +55,7 @@ describe('Strategies:DNSTXT', function() {
     });
 
     it('should return verified for search of TXT DNS records with correct token', function(done) {
-      dnstxt('example.com', `cronio=${token}`, function(err, verified) {
+      verifier.dnstxt('example.com', `cronio=${token}`, function(err, verified) {
         expect(err).to.equal(null);
         expect(verified).to.equal(true);
         done();
